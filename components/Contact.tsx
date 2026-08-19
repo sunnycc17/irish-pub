@@ -1,4 +1,9 @@
-import Image from "next/image";
+import { Uncial_Antiqua } from "next/font/google";
+
+const uncial = Uncial_Antiqua({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const openingHours = [
   { day: "PON–ČET", hours: "16.00–1.00" },
@@ -11,73 +16,88 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-irish-dark px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-12 lg:py-32"
+      className="px-5 py-24 text-[#F5F2EA] sm:px-8 sm:py-28 lg:px-12 lg:py-36"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Section heading */}
-        <div className="max-w-3xl">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-10 bg-irish-orange" />
 
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-irish-orange">
+        {/* Header */}
+        <div className="max-w-3xl">
+          <div className="mb-6 flex items-center gap-4">
+            <span className="h-px w-12 bg-irish-orange" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-irish-orange">
               Kontakt
             </p>
           </div>
 
-          <h2 className="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl">
+          <h2
+            className={`${uncial.className} text-5xl leading-[0.95] text-white sm:text-6xl md:text-7xl`}
+          >
             Come say
-            <span className="block text-irish-green">Sláinte.</span>
+            <br />
+            <span className="text-white/80">Sláinte.</span>
           </h2>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
             Najdete nas v Kranju, na obrobju mestnega središča. Pridite na
             pivo, kavo ali samo pozdravit prijatelje.
           </p>
         </div>
 
-        {/* Content */}
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {/* Address & contact */}
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
-              Naslov
-            </p>
+        {/* Main content */}
+        <div className="mt-16 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
 
-            <h3 className="mt-4 text-2xl font-black">
-              IRISH d. o. o.
-            </h3>
+          {/* Contact information */}
+          <div className="rounded-3xl border border-white/[0.07] bg-[#100D0A] p-6 sm:p-8 lg:p-10">
+            <div className="flex items-start justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
+                  Kje smo
+                </p>
 
-            <address className="mt-2 not-italic leading-relaxed text-white/60">
+                <h3 className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                  IRISH d. o. o.
+                </h3>
+              </div>
+
+              <span className="text-xs font-bold tracking-[0.2em] text-white/20">
+                01
+              </span>
+            </div>
+
+            {/* Address */}
+            <address className="mt-5 not-italic text-base leading-relaxed text-white/55">
               Cesta Staneta Žagarja 16
               <br />
               4000 Kranj
             </address>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {/* Email */}
+            <div className="my-8 h-px bg-white/[0.07]" />
+
+            {/* Contact details */}
+            <div className="grid gap-4 sm:grid-cols-2">
               <a
                 href="mailto:info@irish.si"
-                className="group rounded-2xl border border-white/10 bg-black/10 p-5 transition duration-300 hover:border-irish-green/40 hover:bg-irish-green/10"
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
               >
-                <p className="text-xs font-bold uppercase tracking-wider text-white/40">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
                   Email
                 </p>
 
-                <p className="mt-2 break-all font-semibold text-white transition group-hover:text-irish-green">
+                <p className="mt-3 break-all text-sm font-semibold text-white">
                   info@irish.si
                 </p>
               </a>
 
-              {/* Phone */}
               <a
                 href="tel:+38651668832"
-                className="group rounded-2xl border border-white/10 bg-black/10 p-5 transition duration-300 hover:border-irish-green/40 hover:bg-irish-green/10"
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
               >
-                <p className="text-xs font-bold uppercase tracking-wider text-white/40">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
                   Telefon
                 </p>
 
-                <p className="mt-2 font-semibold text-white transition group-hover:text-irish-green">
+                <p className="mt-3 text-sm font-semibold text-white">
                   051 668 832
                 </p>
               </a>
@@ -88,44 +108,56 @@ export default function Contact() {
               href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center justify-between rounded-2xl bg-irish-green px-6 py-4 font-bold text-white transition duration-300 hover:bg-irish-green/80"
+              className="mt-5 flex items-center justify-between rounded-2xl border border-irish-green/40 bg-irish-green/[0.16] px-6 py-5 text-sm font-bold text-white"
             >
-              <span>Get directions</span>
-              <span className="text-xl">→</span>
+              <span>Odpri v Google Maps</span>
+
+              <span className="text-xl text-irish-green">
+                →
+              </span>
             </a>
           </div>
 
           {/* Opening hours */}
-          <div className="rounded-3xl bg-irish-cream p-6 text-irish-dark sm:p-8">
-            <div className="flex items-center justify-between">
+          <div className="rounded-3xl border border-white/[0.07] bg-[#100D0A] p-6 sm:p-8 lg:p-10">
+            <div className="flex items-start justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
                   Opening hours
                 </p>
 
-                <h3 className="mt-2 text-2xl font-black">
+                <h3
+                  className={`${uncial.className} mt-3 text-4xl text-white sm:text-5xl`}
+                >
                   Delovni čas
                 </h3>
               </div>
 
-              <span className="text-3xl">🕐</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-white/20">
+                02
+              </span>
             </div>
 
+            {/* Hours */}
             <div className="mt-8">
-              {openingHours.map((item) => (
+              {openingHours.map((item, index) => (
                 <div
                   key={item.day}
-                  className="flex items-center justify-between border-b border-irish-dark/10 py-4 last:border-0"
+                  className={`flex items-center justify-between py-5 ${
+                    index !== openingHours.length - 1
+                      ? "border-b border-white/[0.07]"
+                      : ""
+                  }`}
                 >
-                  <span className="text-sm font-bold">
+                  <span className="text-xs font-bold tracking-[0.15em] text-white/45">
                     {item.day}
                   </span>
 
                   <span
                     className={
                       item.hours === "ZAPRTO"
-                        ? "text-sm font-bold text-red-700"
-                        : "text-sm font-semibold text-irish-dark/70"
+                        ? "text-sm font-bold text-irish-orange"
+                        : "text-sm font-semibold text-white"
                     }
                   >
                     {item.hours}
@@ -134,32 +166,35 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl bg-irish-green/10 p-4">
-              <p className="text-sm leading-relaxed text-irish-dark/70">
-                <span className="font-bold text-irish-green">
-                  Nedelja:
-                </span>{" "}
-                zaprto
+            {/* Sunday note */}
+            <div className="mt-7 border-l border-irish-orange pl-4">
+              <p className="text-sm leading-relaxed text-white/45">
+                Nedelja je dan za počitek.
+                <span className="block font-semibold text-white/70">
+                  Takrat smo zaprti.
+                </span>
               </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom strip */}
-        <div className="mt-5 flex flex-col items-center justify-between gap-4 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-6 text-center sm:flex-row sm:text-left">
+        {/* Bottom CTA */}
+        <div className="mt-5 flex flex-col gap-5 rounded-3xl border border-white/[0.07] bg-[#100D0A] px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div>
-            <p className="font-bold text-white">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
               Irish Pub · Kranj
             </p>
 
-            <p className="mt-1 text-sm text-white/40">
-              Good drinks · Good music · Good company
+            <p
+              className={`${uncial.className} mt-2 text-2xl text-white sm:text-3xl`}
+            >
+              Good drinks. Good company.
             </p>
           </div>
 
           <a
             href="tel:+38651668832"
-            className="rounded-full border border-irish-orange px-6 py-3 text-sm font-bold text-irish-orange transition duration-300 hover:bg-irish-orange hover:text-irish-dark"
+            className="inline-flex items-center justify-center rounded-full border border-irish-orange px-7 py-3.5 text-sm font-bold text-irish-orange"
           >
             051 668 832
           </a>

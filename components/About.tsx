@@ -1,108 +1,154 @@
 import Image from "next/image";
+import { Uncial_Antiqua } from "next/font/google";
+
+const uncial = Uncial_Antiqua({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function About() {
   return (
     <section
       id="about"
-      className="bg-irish-cream px-6 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32"
+      className="px-5 py-24 text-[#F5F2EA] sm:px-8 sm:py-28 lg:px-12 lg:py-36"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         {/* Image */}
         <div className="relative">
-          <div className="absolute -left-3 -top-3 h-full w-full rounded-3xl border-2 border-irish-orange/30 sm:-left-4 sm:-top-4" />
+          {/* Orange offset frame */}
+          <div className="absolute -bottom-4 -left-4 h-full w-full rounded-3xl border border-irish-orange/40" />
 
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <Image
-              src="/irish.webp"
-              alt="Irish Pub Kranj"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#100D0A] p-2">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+              <Image
+                src="/irish-about.webp"
+                alt="Interior of Irish Pub Kranj"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+              />
+
+              <div className="absolute inset-0 bg-black/20" />
+            </div>
           </div>
 
-          {/* Year badge */}
-          <div className="absolute -bottom-5 -right-3 rounded-2xl bg-irish-dark px-6 py-5 text-white shadow-xl sm:-right-5">
-            <p className="text-3xl font-black text-irish-orange">1997</p>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/60">
-              Since
-            </p>
+          {/* Since badge */}
+          <div className="absolute -bottom-7 right-4 rounded-2xl border border-white/10 bg-[#15110D] px-6 py-5 shadow-2xl sm:right-6">
+            <p className={`${uncial.className} text-4xl text-white`}>1997</p>
+
+            <div className="mt-1 flex items-center gap-2">
+              <span className="h-px w-5 bg-irish-orange" />
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/45">
+                Since
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Content */}
         <div>
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-1 w-10 rounded-full bg-irish-orange" />
+          {/* Eyebrow */}
+          <div className="mb-6 flex items-center gap-4">
+            <span className="h-px w-12 bg-irish-orange" />
 
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-irish-green">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-irish-orange">
               O nas
             </p>
           </div>
 
-          <h2 className="text-4xl font-black leading-tight tracking-tight text-irish-dark sm:text-5xl lg:text-6xl">
+          {/* Heading */}
+          <h2
+            className={`${uncial.className} max-w-2xl text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl`}
+          >
             A little bit of
-            <span className="block text-irish-green">
-              Ireland in Kranj.
-            </span>
+            <br />
+            <span className="text-white/80">Ireland in Kranj.</span>
           </h2>
 
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-irish-dark/70 sm:text-lg">
+          {/* Accent */}
+          <div className="mt-7 flex gap-2">
+            <span className="h-1 w-12 rounded-full bg-irish-green" />
+            <span className="h-1 w-3 rounded-full bg-irish-orange" />
+          </div>
+
+          {/* Text */}
+          <div className="mt-9 space-y-5 text-base leading-relaxed text-white/60 sm:text-lg">
             <p>
-              Irish ima kultno mesto med gostinsko ponudbo v Kranju, saj
-              ohranja tradicijo prave irske pivnice že od leta{" "}
-              <strong className="font-bold text-irish-dark">1997.</strong>
+              Irish ima kultno mesto med gostinsko ponudbo v Kranju, saj ohranja
+              tradicijo prave irske pivnice že od leta{" "}
+              <strong className="font-semibold text-white">1997.</strong>
             </p>
 
             <p>
               Izbira točenih piv — Guinness, Carlsberg, Stiegl, Tektonik,
-              Paulaner, Laško ali Union — in široka izbira ustekleničenih piv
-              bo navdušila vse pivoljubce. Prijazna postrežba pa vključuje
-              tudi slan prigrizek.
+              Paulaner, Laško ali Union — in široka izbira ustekleničenih piv bo
+              navdušila vse pivoljubce. Prijazna postrežba pa vključuje tudi
+              slan prigrizek.
             </p>
 
             <p>
               Imate raje kavo? Energijo vam bo v žile poslala kava{" "}
-              <strong className="font-semibold text-irish-dark">
-                Hausbrandt.
-              </strong>
+              <strong className="font-semibold text-white">Hausbrandt.</strong>
             </p>
 
             <p>
-              Nahaja se na obrobju mestnega središča in nudi možnost
-              parkiranja pred pubom. Izbirate lahko med zasebnostjo pokrite
-              zadnje terase ali ležernim opazovanjem mestnega vrveža na
-              pokriti terasi pred vhodom.
+              Nahaja se na obrobju mestnega središča in nudi možnost parkiranja
+              pred pubom. Izbirate lahko med zasebnostjo pokrite zadnje terase
+              ali ležernim opazovanjem mestnega vrveža na pokriti terasi pred
+              vhodom.
             </p>
           </div>
 
           {/* Features */}
-          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white p-4 shadow-sm">
-              <span className="text-2xl">🍺</span>
-              <p className="mt-2 text-sm font-bold text-irish-dark">
-                Great beers
-              </p>
-            </div>
+        <div className="mt-10 grid gap-3 sm:grid-cols-3">
+  {/* Green */}
+  <div className="rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5">
+    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+      01
+    </span>
 
-            <div className="rounded-2xl bg-white p-4 shadow-sm">
-              <span className="text-2xl">☕</span>
-              <p className="mt-2 text-sm font-bold text-irish-dark">
-                Hausbrandt coffee
-              </p>
-            </div>
+    <h3 className="mt-8 text-sm font-bold text-white">
+      Great beers
+    </h3>
 
-            <div className="rounded-2xl bg-white p-4 shadow-sm">
-              <span className="text-2xl">🌿</span>
-              <p className="mt-2 text-sm font-bold text-irish-dark">
-                Covered terraces
-              </p>
-            </div>
-          </div>
+    <p className="mt-1 text-xs leading-relaxed text-white/60">
+      Guinness, craft & more
+    </p>
+  </div>
 
-          {/* Closing line */}
-          <div className="mt-10 border-l-4 border-irish-orange pl-5">
-            <p className="text-lg font-semibold italic text-irish-dark sm:text-xl">
+  {/* White */}
+  <div className="rounded-2xl border border-white/30 bg-white/[0.16] p-5">
+    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+      02
+    </span>
+
+    <h3 className="mt-8 text-sm font-bold text-white">
+      Hausbrandt coffee
+    </h3>
+
+    <p className="mt-1 text-xs leading-relaxed text-white/60">
+      Italian coffee tradition
+    </p>
+  </div>
+
+  {/* Orange */}
+  <div className="rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5">
+    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+      03
+    </span>
+
+    <h3 className="mt-8 text-sm font-bold text-white">
+      Covered terraces
+    </h3>
+
+    <p className="mt-1 text-xs leading-relaxed text-white/60">
+      Sit inside or outside
+    </p>
+  </div>
+</div>
+          {/* Closing quote */}
+          <div className="mt-10 border-l border-irish-orange pl-5">
+            <p className="text-base font-medium italic leading-relaxed text-white/70 sm:text-lg">
               "Če nimate časa za pivo ali kavo, pa pridite le pozdravit
               prijatelje — vedno vas bomo veseli!"
             </p>

@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import clsx from "clsx";
+import { Uncial_Antiqua } from "next/font/google";
+
+const uncial = Uncial_Antiqua({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 type Category = {
   title: string;
   subtitle: string;
   items: string[];
-  featured?: boolean;
 };
 
 const beerCategories: Category[] = [
@@ -44,7 +47,6 @@ const beerCategories: Category[] = [
   {
     title: "Točeno",
     subtitle: "Sconna",
-    featured: true,
     items: [
       "Carlsberg svetlo",
       "Dizel",
@@ -182,99 +184,30 @@ const wineItems = [
   "Kuhano vino belo",
 ];
 
-function MenuCategory({
-  category,
-  defaultOpen = false,
-}: {
-  category: Category;
-  defaultOpen?: boolean;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-
+function MenuCategory({ category }: { category: Category }) {
   return (
-    <div
-      className={clsx(
-        "overflow-hidden rounded-2xl border transition-all duration-300",
-        category.featured
-          ? "border-irish-green/40 bg-irish-dark text-white"
-          : "border-irish-dark/10 bg-white",
-      )}
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between px-5 py-5 text-left sm:px-6"
-      >
-        <div>
-          <h3
-            className={clsx(
-              "text-xl font-black uppercase tracking-wide",
-              category.featured
-                ? "text-white"
-                : "text-irish-dark",
-            )}
-          >
-            {category.title}
-          </h3>
+    <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-5 sm:p-6">
+      <div className="mb-5">
+        <h3 className="text-xl font-black uppercase tracking-wide text-[#F5F2EA]">
+          {category.title}
+        </h3>
 
-          {category.subtitle && (
-            <p
-              className={clsx(
-                "mt-1 text-xs uppercase tracking-[0.2em]",
-                category.featured
-                  ? "text-irish-orange"
-                  : "text-irish-green",
-              )}
-            >
-              {category.subtitle}
-            </p>
-          )}
-        </div>
-
-        <span
-          className={clsx(
-            "flex h-8 w-8 items-center justify-center rounded-full text-lg transition-transform duration-300",
-            category.featured
-              ? "bg-white/10"
-              : "bg-irish-cream",
-            open && "rotate-45",
-          )}
-        >
-          +
-        </span>
-      </button>
-
-      <div
-        className={clsx(
-          "grid transition-all duration-300",
-          open
-            ? "grid-rows-[1fr]"
-            : "grid-rows-[0fr]",
+        {category.subtitle && (
+          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-irish-green">
+            {category.subtitle}
+          </p>
         )}
-      >
-        <div className="overflow-hidden">
+      </div>
+
+      <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+        {category.items.map((item) => (
           <div
-            className={clsx(
-              "grid grid-cols-1 gap-x-8 px-5 pb-5 sm:grid-cols-2 sm:px-6",
-              category.featured
-                ? "border-t border-white/10"
-                : "border-t border-irish-dark/10",
-            )}
+            key={item}
+            className="border-b border-white/[0.07] py-3 text-sm font-medium text-white/60"
           >
-            {category.items.map((item) => (
-              <div
-                key={item}
-                className={clsx(
-                  "border-b py-3 text-sm font-medium",
-                  category.featured
-                    ? "border-white/10 text-white/80"
-                    : "border-irish-dark/10 text-irish-dark/70",
-                )}
-              >
-                {item}
-              </div>
-            ))}
+            {item}
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -290,22 +223,24 @@ function SimpleCategory({
   items: string[];
 }) {
   return (
-    <div className="rounded-2xl border border-irish-dark/10 bg-white p-5 sm:p-6">
+    <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-5 sm:p-6">
       <div className="mb-5">
-        <h3 className="text-xl font-black uppercase tracking-wide text-irish-dark">
+        <h3 className="text-xl font-black uppercase tracking-wide text-[#F5F2EA]">
           {title}
         </h3>
 
-        <p className="mt-1 text-xs uppercase tracking-[0.2em] text-irish-green">
-          {subtitle}
-        </p>
+        {subtitle && (
+          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-irish-green">
+            {subtitle}
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
         {items.map((item) => (
           <div
             key={item}
-            className="border-b border-irish-dark/10 py-3 text-sm font-medium text-irish-dark/70"
+            className="border-b border-white/[0.07] py-3 text-sm font-medium text-white/60"
           >
             {item}
           </div>
@@ -319,86 +254,84 @@ export default function Drinks() {
   return (
     <section
       id="ponudba"
-      className="bg-irish-cream px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-32"
+      className="px-5 py-24 text-[#F5F2EA] sm:px-8 sm:py-28 lg:px-12 lg:py-36"
     >
       <div className="mx-auto max-w-7xl">
+
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-px w-10 bg-irish-orange" />
+          <div className="mb-6 flex items-center justify-center gap-4">
+            <span className="h-px w-12 bg-irish-orange" />
 
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-irish-orange">
+            <p className="text-xs font-bold uppercase tracking-[0.35em] text-irish-orange">
               Pijača
             </p>
 
-            <span className="h-px w-10 bg-irish-orange" />
+            <span className="h-px w-12 bg-irish-orange" />
           </div>
 
-          <h2 className="text-4xl font-black tracking-tight text-irish-dark sm:text-5xl md:text-6xl">
-            Something for
-            <span className="block text-irish-green">
-              every taste.
-            </span>
+          <h2
+            className={`${uncial.className} text-5xl leading-none text-white sm:text-6xl md:text-7xl`}
+          >
+            Raise a glass.
           </h2>
 
-          <p className="mt-5 text-base leading-relaxed text-irish-dark/60 sm:text-lg">
-            Od pravega Guinnessa do dobre kave, craft piva in irskega
-            viskija. Izberite svojo pijačo.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
+            Od pravega Guinnessa do craft piva, irskega viskija in dobre kave.
+            Izberite svojo pijačo.
           </p>
         </div>
 
         {/* Beer */}
-        <div className="mt-16">
-          <div className="mb-6 flex items-end justify-between">
+        <div className="mt-20">
+          <div className="mb-7 flex items-end justify-between border-b border-white/10 pb-5">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
                 Beer
               </p>
 
-              <h3 className="mt-1 text-3xl font-black text-irish-dark sm:text-4xl">
+              <h3
+                className={`${uncial.className} mt-1 text-4xl text-white sm:text-5xl`}
+              >
                 Pivo
               </h3>
             </div>
 
-            <span className="hidden text-3xl sm:block">🍺</span>
+            <span className="text-3xl opacity-70">🍺</span>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-2">
             {beerCategories.map((category) => (
-              <MenuCategory
-                key={category.title}
-                category={category}
-                defaultOpen={category.featured}
-              />
+              <MenuCategory key={category.title} category={category} />
             ))}
           </div>
 
-          {/* Irish specials */}
+          {/* Specials */}
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl bg-irish-green p-6 text-white">
+            <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-6">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
                 Irish izbor
               </p>
 
-              <h3 className="mt-2 text-2xl font-black">
+              <h3 className="mt-2 text-2xl font-black text-white">
                 Točeno pivo po naši izbiri
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-white/75">
+              <p className="mt-3 text-sm leading-relaxed text-white/60">
                 Pivo menjamo, zato se tudi cena spreminja.
               </p>
             </div>
 
-            <div className="rounded-2xl bg-irish-dark p-6 text-white">
+            <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-6">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
                 Irish Special
               </p>
 
-              <h3 className="mt-2 text-2xl font-black">
+              <h3 className="mt-2 text-2xl font-black text-white">
                 Irish Car Bomb
               </h3>
 
-              <p className="mt-3 text-sm text-white/70">
+              <p className="mt-3 text-sm text-white/60">
                 Guinness · Carolans · Jameson
               </p>
             </div>
@@ -406,40 +339,40 @@ export default function Drinks() {
         </div>
 
         {/* Coffee */}
-        <div className="mt-20">
-          <div className="mb-6 flex items-end justify-between">
+        <div className="mt-24">
+          <div className="mb-7 flex items-end justify-between border-b border-white/10 pb-5">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
                 Coffee
               </p>
 
-              <h3 className="mt-1 text-3xl font-black text-irish-dark sm:text-4xl">
+              <h3
+                className={`${uncial.className} mt-1 text-4xl text-white sm:text-5xl`}
+              >
                 Kava
               </h3>
             </div>
 
-            <span className="hidden text-3xl sm:block">☕</span>
+            <span className="text-3xl opacity-70">☕</span>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
             {coffeeCategories.map((category) => (
-              <MenuCategory
-                key={category.title}
-                category={category}
-                defaultOpen={category.title === "Kava"}
-              />
+              <MenuCategory key={category.title} category={category} />
             ))}
           </div>
         </div>
 
         {/* Other drinks */}
-        <div className="mt-20">
-          <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
+        <div className="mt-24">
+          <div className="mb-8 border-b border-white/10 pb-5">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
               More to choose from
             </p>
 
-            <h3 className="mt-1 text-3xl font-black text-irish-dark sm:text-4xl">
+            <h3
+              className={`${uncial.className} mt-1 text-4xl text-white sm:text-5xl`}
+            >
               Ostala ponudba
             </h3>
           </div>
