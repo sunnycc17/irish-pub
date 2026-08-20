@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "sl_SI",
     siteName: "Irish Pub Kranj",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Irish Pub Kranj",
+      },
+    ],
   },
   icons: {
     icon: "/favicon.png",
