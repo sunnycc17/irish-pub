@@ -63,52 +63,55 @@ export default function Contact() {
               </span>
             </div>
 
-            {/* Contact cards */}
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {/* Green */}
-              <a
-                href="mailto:info@irish.si"
-                className="group rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-green/[0.34]"
-              >
-                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
-                  EMAIL
-                </span>
+      {/* Contact cards */}
+<div className="mt-8 grid gap-3 sm:grid-cols-3">
 
-                <p className="mt-8 break-all text-sm font-bold text-white">
-                  info@irish.si
-                </p>
-              </a>
+  {/* Green */}
+  <a
+    href="mailto:info@irish.si"
+    className="group rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-green/[0.34]"
+  >
+    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
+      EMAIL
+    </span>
 
-              {/* White */}
-              <a
-                href="tel:+38651668832"
-                className="group rounded-2xl border border-white/30 bg-white/[0.16] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.21]"
-              >
-                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
-                  TELEFON
-                </span>
+    <p className="mt-5 break-all text-xs font-bold text-white">
+      info@irish.si
+    </p>
+  </a>
 
-                <p className="mt-8 text-sm font-bold text-white">051 668 832</p>
-              </a>
+  {/* White */}
+  <a
+    href="tel:+38651668832"
+    className="group rounded-2xl border border-white/30 bg-white/[0.16] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.21]"
+  >
+    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
+      TELEFON
+    </span>
 
-              {/* Orange */}
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-orange/[0.34]"
-              >
-                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
-                  NASLOV
-                </span>
+    <p className="mt-5 text-xs font-bold text-white">
+      051 668 832
+    </p>
+  </a>
 
-                <p className="mt-8 text-sm font-bold leading-relaxed text-white">
-                  Cesta Staneta Žagarja 16
-                  <br />
-                  4000 Kranj
-                </p>
-              </a>
-            </div>
+  {/* Orange */}
+  <a
+    href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-orange/[0.34]"
+  >
+    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
+      NASLOV
+    </span>
+
+    <p className="mt-5 text-xs font-bold leading-relaxed text-white">
+      Cesta Staneta Žagarja 16
+      <br />
+      4000 Kranj
+    </p>
+  </a>
+</div>
 
             {/* Directions */}
             <a
