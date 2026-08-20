@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Irish Pub Kranj",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 
