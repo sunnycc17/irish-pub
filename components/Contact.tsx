@@ -19,9 +19,8 @@ export default function Contact() {
       className="px-5 py-24 text-[#F5F2EA] sm:px-8 sm:py-28 lg:px-12 lg:py-36"
     >
       <div className="mx-auto max-w-7xl">
-
         {/* Header */}
-        <div className="max-w-3xl">
+        <header className="max-w-3xl">
           <div className="mb-6 flex items-center gap-4">
             <span className="h-px w-12 bg-irish-orange" />
 
@@ -35,18 +34,17 @@ export default function Contact() {
           >
             Come say
             <br />
-            <span className="text-white/80">Sláinte.</span>
+            <span className="text-white/75">Sláinte.</span>
           </h2>
 
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/55 sm:text-lg">
-            Najdete nas v Kranju, na obrobju mestnega središča. Pridite na
-            pivo, kavo ali samo pozdravit prijatelje.
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/50 sm:text-lg">
+            Najdete nas v Kranju, na obrobju mestnega središča. Pridite na pivo,
+            kavo ali samo pozdravit prijatelje.
           </p>
-        </div>
+        </header>
 
         {/* Main content */}
         <div className="mt-16 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-
           {/* Contact information */}
           <div className="rounded-3xl border border-white/[0.07] bg-[#100D0A] p-6 sm:p-8 lg:p-10">
             <div className="flex items-start justify-between">
@@ -60,45 +58,54 @@ export default function Contact() {
                 </h3>
               </div>
 
-              <span className="text-xs font-bold tracking-[0.2em] text-white/20">
+              <span className="text-xs font-bold tracking-[0.2em] text-white/15">
                 01
               </span>
             </div>
 
-            {/* Address */}
-            <address className="mt-5 not-italic text-base leading-relaxed text-white/55">
-              Cesta Staneta Žagarja 16
-              <br />
-              4000 Kranj
-            </address>
-
-            <div className="my-8 h-px bg-white/[0.07]" />
-
-            {/* Contact details */}
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* Contact cards */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {/* Green */}
               <a
                 href="mailto:info@irish.si"
-                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+                className="group rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-green/[0.34]"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
-                  Email
-                </p>
+                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+                  EMAIL
+                </span>
 
-                <p className="mt-3 break-all text-sm font-semibold text-white">
+                <p className="mt-8 break-all text-sm font-bold text-white">
                   info@irish.si
                 </p>
               </a>
 
+              {/* White */}
               <a
                 href="tel:+38651668832"
-                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+                className="group rounded-2xl border border-white/30 bg-white/[0.16] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.21]"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
-                  Telefon
-                </p>
+                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+                  TELEFON
+                </span>
 
-                <p className="mt-3 text-sm font-semibold text-white">
-                  051 668 832
+                <p className="mt-8 text-sm font-bold text-white">051 668 832</p>
+              </a>
+
+              {/* Orange */}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-orange/[0.34]"
+              >
+                <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+                  NASLOV
+                </span>
+
+                <p className="mt-8 text-sm font-bold leading-relaxed text-white">
+                  Cesta Staneta Žagarja 16
+                  <br />
+                  4000 Kranj
                 </p>
               </a>
             </div>
@@ -108,11 +115,11 @@ export default function Contact() {
               href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center justify-between rounded-2xl border border-irish-green/40 bg-irish-green/[0.16] px-6 py-5 text-sm font-bold text-white"
+              className="group mt-3 flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.02] px-6 py-5 text-sm font-semibold text-white/70 transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.04] hover:text-white"
             >
               <span>Odpri v Google Maps</span>
 
-              <span className="text-xl text-irish-green">
+              <span className="text-xl text-irish-orange transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white">
                 →
               </span>
             </a>
@@ -133,37 +140,41 @@ export default function Contact() {
                 </h3>
               </div>
 
-              <span className="text-xs font-bold tracking-[0.2em] text-white/20">
+              <span className="text-xs font-bold tracking-[0.2em] text-white/15">
                 02
               </span>
             </div>
 
             {/* Hours */}
             <div className="mt-8">
-              {openingHours.map((item, index) => (
-                <div
-                  key={item.day}
-                  className={`flex items-center justify-between py-5 ${
-                    index !== openingHours.length - 1
-                      ? "border-b border-white/[0.07]"
-                      : ""
-                  }`}
-                >
-                  <span className="text-xs font-bold tracking-[0.15em] text-white/45">
-                    {item.day}
-                  </span>
+              {openingHours.map((item, index) => {
+                const isClosed = item.hours === "ZAPRTO";
 
-                  <span
-                    className={
-                      item.hours === "ZAPRTO"
-                        ? "text-sm font-bold text-irish-orange"
-                        : "text-sm font-semibold text-white"
-                    }
+                return (
+                  <div
+                    key={item.day}
+                    className={`flex items-center justify-between py-5 ${
+                      index !== openingHours.length - 1
+                        ? "border-b border-white/[0.07]"
+                        : ""
+                    }`}
                   >
-                    {item.hours}
-                  </span>
-                </div>
-              ))}
+                    <span className="text-xs font-bold tracking-[0.15em] text-white/45">
+                      {item.day}
+                    </span>
+
+                    <span
+                      className={
+                        isClosed
+                          ? "text-sm font-bold text-irish-orange"
+                          : "text-sm font-semibold text-white"
+                      }
+                    >
+                      {item.hours}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Sunday note */}
@@ -194,7 +205,7 @@ export default function Contact() {
 
           <a
             href="tel:+38651668832"
-            className="inline-flex items-center justify-center rounded-full border border-irish-orange px-7 py-3.5 text-sm font-bold text-irish-orange"
+            className="inline-flex items-center justify-center rounded-full border border-irish-orange px-7 py-3.5 text-sm font-bold text-irish-orange transition-all duration-300 hover:bg-irish-orange hover:text-black"
           >
             051 668 832
           </a>

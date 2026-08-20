@@ -28,10 +28,7 @@ const Header: React.FC = () => {
 
     if (!element) return;
 
-    const offset =
-      element.getBoundingClientRect().top +
-      window.scrollY -
-      90;
+    const offset = element.getBoundingClientRect().top + window.scrollY - 90;
 
     window.scrollTo({
       top: offset,
@@ -43,8 +40,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScrollPosition = () => {
-      const scrollPosition =
-        window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       let activeSection = "home";
 
@@ -54,8 +50,7 @@ const Header: React.FC = () => {
         if (
           element &&
           element.offsetTop <= scrollPosition &&
-          scrollPosition <
-            element.offsetTop + element.offsetHeight
+          scrollPosition < element.offsetTop + element.offsetHeight
         ) {
           activeSection = id;
         }
@@ -64,24 +59,15 @@ const Header: React.FC = () => {
       setCurrentSection(activeSection);
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScrollPosition
-    );
+    window.addEventListener("scroll", handleScrollPosition);
 
     handleScrollPosition();
 
-    return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScrollPosition
-      );
+    return () => window.removeEventListener("scroll", handleScrollPosition);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open
-      ? "hidden"
-      : "";
+    document.body.style.overflow = open ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
@@ -89,9 +75,10 @@ const Header: React.FC = () => {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-r from-[#0D0907]/30 via-[#0D0907] to-[#0D0907]/30">
       {/* Navbar */}
-      <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-2 sm:px-4 lg:px-4">
+        {" "}
         {/* Logo */}
         <button
           onClick={() => handleScroll("home")}
@@ -107,25 +94,19 @@ const Header: React.FC = () => {
             className="h-14 w-auto rounded-full object-contain sm:h-16"
           />
         </button>
-
         {/* Desktop navigation */}
         <div className="hidden items-center lg:flex">
           <div className="flex items-center gap-9">
             {navItems.map((item) => {
-              const active =
-                currentSection === item.id;
+              const active = currentSection === item.id;
 
               return (
                 <button
                   key={item.id}
-                  onClick={() =>
-                    handleScroll(item.id)
-                  }
+                  onClick={() => handleScroll(item.id)}
                   className={clsx(
                     "relative py-2 text-xs font-bold uppercase tracking-[0.2em]",
-                    active
-                      ? "text-irish-orange"
-                      : "text-white/65"
+                    active ? "text-irish-orange" : "text-white/65",
                   )}
                 >
                   {item.label}
@@ -133,9 +114,7 @@ const Header: React.FC = () => {
                   <span
                     className={clsx(
                       "absolute -bottom-1 left-0 h-px bg-irish-orange",
-                      active
-                        ? "w-full"
-                        : "w-0"
+                      active ? "w-full" : "w-0",
                     )}
                   />
                 </button>
@@ -151,7 +130,6 @@ const Header: React.FC = () => {
             +386 51 668 832
           </a>
         </div>
-
         {/* Mobile hamburger */}
         <div className="relative z-50 lg:hidden">
           <Hamburger
@@ -160,11 +138,7 @@ const Header: React.FC = () => {
             size={25}
             duration={0.35}
             color="#ffffff"
-            label={
-              open
-                ? "Close menu"
-                : "Open menu"
-            }
+            label={open ? "Close menu" : "Open menu"}
           />
         </div>
       </nav>
@@ -175,7 +149,7 @@ const Header: React.FC = () => {
           "fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-500 lg:hidden",
           open
             ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
+            : "pointer-events-none opacity-0",
         )}
         onClick={() => setOpen(false)}
       />
@@ -188,19 +162,14 @@ const Header: React.FC = () => {
           "bg-[#0D0907]",
           "shadow-2xl",
           "transition-transform duration-500 ease-in-out",
-          open
-            ? "translate-x-0"
-            : "translate-x-full"
+          open ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex h-full flex-col px-6 py-6 sm:px-8">
-
           {/* Sidebar header */}
           <div className="flex items-center justify-between border-b border-white/[0.07] pb-6">
             <div>
-              <p
-                className={`${uncial.className} text-3xl text-white`}
-              >
+              <p className={`${uncial.className} text-3xl text-white`}>
                 Irish Pub
               </p>
 
@@ -229,15 +198,12 @@ const Header: React.FC = () => {
           {/* Navigation */}
           <nav className="mt-8">
             {navItems.map((item, index) => {
-              const active =
-                currentSection === item.id;
+              const active = currentSection === item.id;
 
               return (
                 <button
                   key={item.id}
-                  onClick={() =>
-                    handleScroll(item.id)
-                  }
+                  onClick={() => handleScroll(item.id)}
                   className={clsx(
                     "flex w-full items-center justify-between",
                     "border-b border-white/[0.07]",
@@ -246,28 +212,20 @@ const Header: React.FC = () => {
                     open
                       ? "translate-x-0 opacity-100"
                       : "translate-x-8 opacity-0",
-                    active
-                      ? "text-irish-orange"
-                      : "text-white"
+                    active ? "text-irish-orange" : "text-white",
                   )}
                   style={{
-                    transitionDelay: open
-                      ? `${index * 70 + 100}ms`
-                      : "0ms",
+                    transitionDelay: open ? `${index * 70 + 100}ms` : "0ms",
                   }}
                 >
-                  <span
-                    className={`${uncial.className} text-2xl sm:text-3xl`}
-                  >
+                  <span className={`${uncial.className} text-2xl sm:text-3xl`}>
                     {item.label}
                   </span>
 
                   <span
                     className={clsx(
                       "text-xl",
-                      active
-                        ? "text-irish-orange"
-                        : "text-white/20"
+                      active ? "text-irish-orange" : "text-white/20",
                     )}
                   >
                     →
@@ -279,10 +237,7 @@ const Header: React.FC = () => {
 
           {/* Bottom contact */}
           <div className="mt-auto pt-8">
-            <a
-              href="tel:+38651668832"
-              className="block  p-3"
-            >
+            <a href="tel:+38651668832" className="block  p-3">
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-irish-orange">
                 Call the pub
               </p>
@@ -292,9 +247,7 @@ const Header: React.FC = () => {
                   051 668 832
                 </span>
 
-                <span className="text-xl text-irish-orange">
-                  →
-                </span>
+                <span className="text-xl text-irish-orange">→</span>
               </div>
             </a>
 

@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-black"
+      className="relative min-h-[100svh] overflow-hidden bg-black"
     >
       {/* Background */}
       <Image
@@ -19,7 +19,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-center"
       />
 
       {/* Dark atmosphere */}
@@ -27,23 +27,20 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/30" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-center px-6 pb-28 pt-28 sm:px-10 sm:pb-32 lg:px-16 lg:pb-24 lg:pt-16">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 sm:pb-28 sm:pt-32 lg:px-16 lg:pb-24 lg:pt-16">
         <div className="max-w-5xl">
-
           {/* Eyebrow */}
-          <div className="mb-7 flex items-center gap-4 sm:mb-8">
-            <span className="h-px w-10 bg-irish-orange sm:w-12" />
+          <div className="mb-5 flex items-center gap-3 sm:mb-8 sm:gap-4">
+            <span className="h-px w-8 bg-irish-orange sm:w-12" />
 
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/65 sm:text-xs sm:tracking-[0.35em]">
+            <p className="text-[9px] font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xs sm:tracking-[0.35em]">
               Irish Pub · Kranj
             </p>
-
-            <span className="h-2 w-2 rounded-full bg-irish-orange" />
           </div>
 
           {/* Heading */}
           <h1
-            className={`${uncial.className} text-[4.5rem] leading-[0.88] text-white sm:text-8xl md:text-9xl lg:text-[9.5rem]`}
+            className={`${uncial.className} text-[3.6rem] leading-[0.88] text-white min-[400px]:text-[4rem] sm:text-8xl md:text-9xl lg:text-[9.5rem]`}
           >
             Stay for
             <br />
@@ -51,30 +48,30 @@ export default function Hero() {
           </h1>
 
           {/* Irish accents */}
-          <div className="mt-6 flex items-center gap-2 sm:mt-7 sm:gap-3">
-            <span className="h-1 w-12 rounded-full bg-irish-green sm:w-16" />
-            <span className="h-1 w-4 rounded-full bg-irish-orange sm:w-5" />
+          <div className="mt-5 flex items-center gap-1 sm:mt-7 sm:gap-2">
+            <span className="h-1 w-7 rounded-full bg-irish-green sm:w-10" />
+            <span className="h-1 w-7 rounded-full bg-white sm:w-10" />
+            <span className="h-1 w-7 rounded-full bg-irish-orange sm:w-10" />
           </div>
 
           {/* Description */}
-          <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/65 sm:mt-7 sm:text-lg">
+          <p className="mt-5 max-w-[22rem] text-sm leading-relaxed text-white/60 sm:mt-7 sm:max-w-lg sm:text-lg">
             Dobro pivo, dobra glasba in družba, zaradi katere ostaneš še eno
             rundo.
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+          <div className="mt-7 flex flex-row flex-wrap gap-2.5 sm:mt-9 sm:gap-4">
             <a
               href="#ponudba"
-              className="flex min-h-12 items-center justify-center rounded-xl bg-irish-orange px-7 py-3.5 text-sm font-bold text-black"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-irish-orange px-2 py-3 text-sm font-bold text-black transition-all duration-300 hover:brightness-110 sm:flex-none sm:px-9 sm:py-4"
             >
               Poglej ponudbo
-              <span className="ml-3 text-base">→</span>
             </a>
 
             <a
               href="tel:+38651668832"
-              className="flex min-h-12 items-center justify-center rounded-xl border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-white/20 bg-white/[0.06] px-2 py-3 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.1] sm:flex-none sm:px-9 sm:py-4"
             >
               Pokliči nas
             </a>
@@ -82,13 +79,13 @@ export default function Hero() {
         </div>
 
         {/* Mobile information */}
-        <div className="mt-12 sm:mt-14 lg:hidden">
-          <div className="border-t border-white/15 pt-5">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-white/40">
+        <div className="mt-auto pt-12 sm:pt-14 lg:hidden">
+          <div className="border-t border-white/15 pt-4">
+            <p className="text-[9px] uppercase tracking-[0.16em] text-white/40 sm:text-[10px] sm:tracking-[0.18em]">
               Cesta Staneta Žagarja 16 · Kranj
             </p>
 
-            <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-white/30">
+            <p className="mt-2 text-[9px] uppercase tracking-[0.16em] text-white/30 sm:text-[10px] sm:tracking-[0.18em]">
               Pivo · Glasba · Druženje
             </p>
           </div>
@@ -96,7 +93,7 @@ export default function Hero() {
       </div>
 
       {/* Desktop information */}
-      <div className="absolute bottom-7 left-0 right-0 z-10 hidden px-6 sm:px-10 lg:block lg:px-16">
+      <div className="absolute bottom-7 left-0 right-0 z-10 hidden px-6 sm:px-8 lg:block lg:px-16">
         <div className="mx-auto flex max-w-7xl items-center justify-between border-t border-white/15 pt-5">
           <p className="text-xs uppercase tracking-[0.18em] text-white/40">
             Cesta Staneta Žagarja 16 · Kranj
