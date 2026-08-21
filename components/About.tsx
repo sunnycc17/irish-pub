@@ -99,51 +99,54 @@ export default function About() {
             </p>
           </div>
 
-          {/* Features */}
-        <div className="mt-10 grid gap-3 sm:grid-cols-3">
-  {/* Green */}
-  <div className="rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5">
-    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+   {/* Features */}
+<div className="mt-10 grid gap-3 sm:grid-cols-3">
+  {/* Great beers */}
+  <div className="group flex items-center gap-4 rounded-2xl border border-irish-green/40 bg-irish-green/[0.22] p-4 sm:block sm:p-5">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-irish-green/40 text-[10px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
       01
     </span>
 
-    <h3 className="mt-8 text-sm font-bold text-white">
-      Great beers
-    </h3>
-
-    <p className="mt-1 text-xs leading-relaxed text-white/60">
-      Guinness, craft & more
-    </p>
+    <div>
+      <h3 className="text-sm font-bold text-white sm:mt-8">
+        Great beers
+      </h3>
+      <p className="mt-0.5 text-xs leading-relaxed text-white/60">
+        Guinness, craft & more
+      </p>
+    </div>
   </div>
 
-  {/* White */}
-  <div className="rounded-2xl border border-white/30 bg-white/[0.16] p-5">
-    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+  {/* Hausbrandt */}
+  <div className="group flex items-center gap-4 rounded-2xl border border-white/20 bg-white/[0.10] p-4 sm:block sm:p-5">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-[10px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
       02
     </span>
 
-    <h3 className="mt-8 text-sm font-bold text-white">
-      Hausbrandt coffee
-    </h3>
-
-    <p className="mt-1 text-xs leading-relaxed text-white/60">
-      Italian coffee tradition
-    </p>
+    <div>
+      <h3 className="text-sm font-bold text-white sm:mt-8">
+        Hausbrandt coffee
+      </h3>
+      <p className="mt-0.5 text-xs leading-relaxed text-white/60">
+        Italian coffee tradition
+      </p>
+    </div>
   </div>
 
-  {/* Orange */}
-  <div className="rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5">
-    <span className="text-xs font-bold tracking-[0.2em] text-white/70">
+  {/* Terraces */}
+  <div className="group flex items-center gap-4 rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.22] p-4 sm:block sm:p-5">
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-irish-orange/40 text-[10px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
       03
     </span>
 
-    <h3 className="mt-8 text-sm font-bold text-white">
-      Covered terraces
-    </h3>
-
-    <p className="mt-1 text-xs leading-relaxed text-white/60">
-      Sit inside or outside
-    </p>
+    <div>
+      <h3 className="text-sm font-bold text-white sm:mt-8">
+        Covered terraces
+      </h3>
+      <p className="mt-0.5 text-xs leading-relaxed text-white/60">
+        Sit inside or outside
+      </p>
+    </div>
   </div>
 </div>
           {/* Closing quote */}

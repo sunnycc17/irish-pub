@@ -62,56 +62,60 @@ export default function Contact() {
                 01
               </span>
             </div>
+            {/* Contact cards */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {/* Email */}
+              <a
+                href="mailto:info@irish.si"
+                className="group flex items-center gap-4 rounded-2xl border border-irish-green/40 bg-irish-green/[0.22] p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-green/[0.28] sm:block sm:p-5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-irish-green/40 text-[9px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
+                  EMAIL
+                </span>
 
-      {/* Contact cards */}
-<div className="mt-8 grid gap-3 sm:grid-cols-3">
+                <div>
+                  <p className="text-xs font-bold text-white sm:mt-8">
+                    info@irish.si
+                  </p>
+                </div>
+              </a>
 
-  {/* Green */}
-  <a
-    href="mailto:info@irish.si"
-    className="group rounded-2xl border border-irish-green/40 bg-irish-green/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-green/[0.34]"
-  >
-    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
-      EMAIL
-    </span>
+              {/* Phone */}
+              <a
+                href="tel:+38651668832"
+                className="group flex items-center gap-4 rounded-2xl border border-white/20 bg-white/[0.10] p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.16] sm:block sm:p-5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-[9px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
+                  TEL
+                </span>
 
-    <p className="mt-5 break-all text-xs font-bold text-white">
-      info@irish.si
-    </p>
-  </a>
+                <div>
+                  <p className="text-xs font-bold text-white sm:mt-8">
+                    051 668 832
+                  </p>
+                </div>
+              </a>
 
-  {/* White */}
-  <a
-    href="tel:+38651668832"
-    className="group rounded-2xl border border-white/30 bg-white/[0.16] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.21]"
-  >
-    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
-      TELEFON
-    </span>
+              {/* Address */}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.22] p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-orange/[0.28] sm:block sm:p-5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-irish-orange/40 text-[9px] font-bold tracking-[0.15em] text-white/70 sm:block sm:h-auto sm:w-auto sm:rounded-none sm:border-0">
+                  MAP
+                </span>
 
-    <p className="mt-5 text-xs font-bold text-white">
-      051 668 832
-    </p>
-  </a>
-
-  {/* Orange */}
-  <a
-    href="https://www.google.com/maps/search/?api=1&query=Cesta+Staneta+Žagarja+16,+4000+Kranj"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group rounded-2xl border border-irish-orange/40 bg-irish-orange/[0.28] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-irish-orange/[0.34]"
-  >
-    <span className="text-[10px] font-bold tracking-[0.2em] text-white/70">
-      NASLOV
-    </span>
-
-    <p className="mt-5 text-xs font-bold leading-relaxed text-white">
-      Cesta Staneta Žagarja 16
-      <br />
-      4000 Kranj
-    </p>
-  </a>
-</div>
+                <div>
+                  <p className="text-xs font-bold leading-relaxed text-white sm:mt-8">
+                    Cesta Staneta Žagarja 16
+                    <br />
+                    4000 Kranj
+                  </p>
+                </div>
+              </a>
+            </div>
 
             {/* Directions */}
             <a
