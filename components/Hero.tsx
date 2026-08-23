@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] overflow-hidden bg-black"
+      className="relative min-h-[680px] overflow-hidden bg-black sm:min-h-[750px] lg:min-h-screen"
     >
       {/* Background */}
       <Image
@@ -27,11 +27,9 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/30" />
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-7xl flex-col px-5 pt-32 pb-8 sm:px-8 sm:pt-36 sm:pb-10 lg:px-16 lg:justify-center lg:pt-16 lg:pb-24">
-        
+      <div className="relative z-10 mx-auto flex min-h-[680px] w-full max-w-7xl flex-col px-5 pt-32 pb-8 sm:min-h-[750px] sm:px-8 sm:pt-36 sm:pb-10 lg:min-h-screen lg:justify-center lg:px-16 lg:pt-16 lg:pb-24">
         {/* Hero copy */}
         <div className="max-w-5xl lg:-mt-4">
-          
           {/* Eyebrow */}
           <div className="mb-7 flex items-center gap-3 sm:mb-8 sm:gap-4">
             <span className="h-px w-8 bg-irish-orange sm:w-12" />
@@ -64,7 +62,7 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="mt-9 flex flex-row flex-wrap gap-2.5 sm:mt-9 sm:gap-4">
+          <div className="mt-9 flex flex-row flex-wrap gap-2.5 sm:gap-4">
             <a
               href="#ponudba"
               className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-irish-orange px-2 py-3 text-sm font-bold text-black transition-all duration-300 hover:brightness-110 sm:flex-none sm:px-9 sm:py-4"
@@ -82,7 +80,7 @@ export default function Hero() {
         </div>
 
         {/* Mobile information */}
-        <div className="mt-auto pt-16 sm:pt-20 lg:hidden">
+        <div className="mt-auto pt-16 lg:hidden">
           <div className="border-t border-white/15 pt-4">
             <p className="text-[9px] uppercase tracking-[0.16em] text-white/40 sm:text-[10px] sm:tracking-[0.18em]">
               Cesta Staneta Žagarja 16 · Kranj
