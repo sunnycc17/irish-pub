@@ -39,13 +39,11 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Heading */}
           <h1
-            className={`${uncial.className} text-[3.6rem] leading-[0.88] text-white min-[400px]:text-[4rem] sm:text-8xl md:text-9xl lg:text-[9.5rem]`}
+            className={`${uncial.className} text-[3rem] leading-[0.9] text-white min-[400px]:text-[3.2rem] sm:text-6xl md:text-7xl lg:text-[7rem]`}
           >
-            Stay for
-            <br />
-            <span className="text-white/90">one more.</span>
+            Pints and good craic.
+         
           </h1>
 
           {/* Irish accents */}

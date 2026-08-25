@@ -1,64 +1,80 @@
 "use client";
 
 import { Uncial_Antiqua } from "next/font/google";
+import { Beer, Coffee } from "lucide-react";
 
 const uncial = Uncial_Antiqua({
   subsets: ["latin"],
   weight: "400",
 });
 
+type MenuItem = {
+  name: string;
+  price: string;
+};
+
 type Category = {
   title: string;
   subtitle: string;
-  items: string[];
+  items: MenuItem[];
 };
+
+const toMenuItems = (items: string[]): MenuItem[] =>
+  items.map((name) => ({
+    name,
+    price: "€—",
+  }));
 
 const beerCategories: Category[] = [
   {
     title: "Steklenica",
     subtitle: "Buidéal",
     items: [
-      "Bernard",
-      "Corona",
-      "Heineken",
-      "Kilkenny pločevinka",
-      "Kozel",
-      "Radler",
-      "Somersby",
-      "Staropramen",
-      "Sullivan’s pločevinka",
+      { name: "Bernard", price: "€—" },
+      { name: "Corona", price: "€—" },
+      { name: "Heineken", price: "€—" },
+      { name: "Kilkenny pločevinka", price: "€—" },
+      { name: "Kozel", price: "€—" },
+      { name: "Radler", price: "€—" },
+      { name: "Somersby", price: "€—" },
+      { name: "Staropramen", price: "€—" },
+      { name: "Sullivan’s pločevinka", price: "€—" },
     ],
   },
   {
     title: "Brezalkoholno",
     subtitle: "",
     items: [
-      "Heineken 0.0 brezalko.",
-      "Isotonic brezalko.",
-      "Stiegl Sport brezalko.",
-      "Uni brezalko.",
+      { name: "Heineken 0.0 brezalko.", price: "€—" },
+      { name: "Isotonic brezalko.", price: "€—" },
+      { name: "Stiegl Sport brezalko.", price: "€—" },
+      { name: "Uni brezalko.", price: "€—" },
     ],
   },
   {
     title: "Craft",
     subtitle: "",
-    items: ["Mali Grad", "Maister", "Hoppy Lager"],
+    items: [
+      { name: "Mali Grad", price: "€—" },
+      { name: "Maister", price: "€—" },
+      { name: "Hoppy Lager", price: "€—" },
+    ],
   },
   {
     title: "Točeno",
     subtitle: "Sconna",
     items: [
-      "Carlsberg svetlo",
-      "Dizel",
-      "Guinness temno",
-      "Laško",
-      "Paulaner svetlo",
-      "Radler svetlo s Fanto",
-      "Radler svetlo s Schweppes",
-      "Radler temno s Schweppes",
-      "Stiegl svetlo",
-      "Tektonik Čehur",
-      "Union svetlo nefiltrirano",
+      { name: "Carlsberg svetlo", price: "€—" },
+      { name: "Dizel", price: "€—" },
+      { name: "Guinness temno", price: "€—" },
+      { name: "Laško", price: "€—" },
+      { name: "Paulaner svetlo", price: "€—" },
+      { name: "Radler svetlo s Fanto", price: "€—" },
+      { name: "Radler svetlo s Schweppes", price: "€—" },
+      { name: "Radler temno s Schweppes", price: "€—" },
+      { name: "Stiegl svetlo", price: "€—" },
+      { name: "Tektonik Čehur", price: "€—" },
+      { name: "Union svetlo nefiltrirano", price: "€—" },
     ],
   },
 ];
@@ -68,39 +84,39 @@ const coffeeCategories: Category[] = [
     title: "Kava",
     subtitle: "Caife",
     items: [
-      "Espresso",
-      "Macchiato",
-      "Z mlekom",
-      "S smetano",
-      "Cappuccino",
-      "Bela",
-      "Latte Macchiato",
-      "Irish Coffee",
-      "Irish Creme Coffee",
+      { name: "Espresso", price: "€—" },
+      { name: "Macchiato", price: "€—" },
+      { name: "Z mlekom", price: "€—" },
+      { name: "S smetano", price: "€—" },
+      { name: "Cappuccino", price: "€—" },
+      { name: "Bela", price: "€—" },
+      { name: "Latte Macchiato", price: "€—" },
+      { name: "Irish Coffee", price: "€—" },
+      { name: "Irish Creme Coffee", price: "€—" },
     ],
   },
   {
     title: "Brezkofeinska",
     subtitle: "",
     items: [
-      "Espresso",
-      "Macchiato",
-      "Z mlekom",
-      "S smetano",
-      "Cappuccino",
-      "Bela",
+      { name: "Espresso", price: "€—" },
+      { name: "Macchiato", price: "€—" },
+      { name: "Z mlekom", price: "€—" },
+      { name: "S smetano", price: "€—" },
+      { name: "Cappuccino", price: "€—" },
+      { name: "Bela", price: "€—" },
     ],
   },
   {
     title: "Ječmenova",
     subtitle: "",
     items: [
-      "Espresso",
-      "Macchiato",
-      "Z mlekom",
-      "S smetano",
-      "Cappuccino",
-      "Bela",
+      { name: "Espresso", price: "€—" },
+      { name: "Macchiato", price: "€—" },
+      { name: "Z mlekom", price: "€—" },
+      { name: "S smetano", price: "€—" },
+      { name: "Cappuccino", price: "€—" },
+      { name: "Bela", price: "€—" },
     ],
   },
 ];
@@ -184,44 +200,7 @@ const wineItems = [
   "Kuhano vino belo",
 ];
 
-function MenuCategory({ category }: { category: Category }) {
-  return (
-    <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-5 sm:p-6">
-      <div className="mb-5">
-        <h3 className="text-xl font-black uppercase tracking-wide text-[#F5F2EA]">
-          {category.title}
-        </h3>
-
-        {category.subtitle && (
-          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-irish-green">
-            {category.subtitle}
-          </p>
-        )}
-      </div>
-
-      <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
-        {category.items.map((item) => (
-          <div
-            key={item}
-            className="border-b border-white/[0.07] py-3 text-sm font-medium text-white/60"
-          >
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function SimpleCategory({
-  title,
-  subtitle,
-  items,
-}: {
-  title: string;
-  subtitle: string;
-  items: string[];
-}) {
+function MenuCategory({ title, subtitle, items }: Category) {
   return (
     <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-5 sm:p-6">
       <div className="mb-5">
@@ -239,10 +218,16 @@ function SimpleCategory({
       <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
         {items.map((item) => (
           <div
-            key={item}
-            className="border-b border-white/[0.07] py-3 text-sm font-medium text-white/60"
+            key={item.name}
+            className="flex items-center justify-between gap-4 border-b border-white/[0.07] py-3"
           >
-            {item}
+            <span className="text-sm font-medium text-white/60">
+              {item.name}
+            </span>
+
+            <span className="shrink-0 text-sm font-bold text-white/85">
+              {item.price}
+            </span>
           </div>
         ))}
       </div>
@@ -283,7 +268,7 @@ export default function Drinks() {
         </div>
 
         {/* Beer */}
-        <div className="mt-20">
+        <div id="pivo" className="mt-20 scroll-mt-28">
           <div className="mb-7 flex items-end justify-between border-b border-white/10 pb-5">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
@@ -297,16 +282,15 @@ export default function Drinks() {
               </h3>
             </div>
 
-            <span className="text-3xl opacity-70">🍺</span>
+            <Beer className="h-8 w-8 text-white/50" />
           </div>
 
           <div className="grid gap-4 lg:grid-cols-2">
             {beerCategories.map((category) => (
-              <MenuCategory key={category.title} category={category} />
+              <MenuCategory key={category.title} {...category} />
             ))}
           </div>
 
-          {/* Specials */}
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/[0.07] bg-[#100D0A] p-6">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-irish-orange">
@@ -339,7 +323,7 @@ export default function Drinks() {
         </div>
 
         {/* Coffee */}
-        <div className="mt-24">
+        <div id="kava" className="mt-24 scroll-mt-28">
           <div className="mb-7 flex items-end justify-between border-b border-white/10 pb-5">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-irish-orange">
@@ -353,12 +337,12 @@ export default function Drinks() {
               </h3>
             </div>
 
-            <span className="text-3xl opacity-70">☕</span>
+            <Coffee className="h-8 w-8 text-white/50" />
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
             {coffeeCategories.map((category) => (
-              <MenuCategory key={category.title} category={category} />
+              <MenuCategory key={category.title} {...category} />
             ))}
           </div>
         </div>
@@ -378,43 +362,52 @@ export default function Drinks() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            <SimpleCategory
-              title="Whiskey"
-              subtitle="Uisce Beatha"
-              items={whiskeyItems}
-            />
 
-            <SimpleCategory
+            <div id="whiskey" className="scroll-mt-28">
+              <MenuCategory
+                title="Whiskey"
+                subtitle="Uisce Beatha"
+                items={toMenuItems(whiskeyItems)}
+              />
+            </div>
+
+            <MenuCategory
               title="Žganje"
               subtitle="Biotáille"
-              items={spiritsItems}
+              items={toMenuItems(spiritsItems)}
             />
 
-            <SimpleCategory
+            <MenuCategory
               title="Ostalo"
               subtitle="Eile"
-              items={otherSpiritsItems}
+              items={toMenuItems(otherSpiritsItems)}
             />
 
-            <SimpleCategory
+            <MenuCategory
               title="Rum"
               subtitle=""
-              items={rumItems}
+              items={toMenuItems(rumItems)}
             />
 
-            <SimpleCategory
-              title="Cocktaili"
-              subtitle="Manglam"
-              items={cocktailsItems}
-            />
+            <div id="cocktails" className="scroll-mt-28">
+              <MenuCategory
+                title="Cocktaili"
+                subtitle="Manglam"
+                items={toMenuItems(cocktailsItems)}
+              />
+            </div>
 
-            <SimpleCategory
-              title="Vino"
-              subtitle="Fíon"
-              items={wineItems}
-            />
+            <div id="vino" className="scroll-mt-28">
+              <MenuCategory
+                title="Vino"
+                subtitle="Fíon"
+                items={toMenuItems(wineItems)}
+              />
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );
